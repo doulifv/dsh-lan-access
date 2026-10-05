@@ -1,0 +1,14 @@
+# dsh-lan-access — profile patch layer.
+# install_bundle reads `dsh.bundle.patch` from package.json and applies this to
+# the desktop profile. It inserts the plugin entry with its config. A plugin
+# toggle updates `disabled`/`config` in the profile's cordis.patch.yml.
+- insert:
+    - name: 'dsh-lan-access'
+      # config is passed to `apply(ctx, config)` in lib/index.js.
+      config:
+        lanPort: 19193
+        requireToken: true
+        autoStart: true
+        # accessToken: ''   # leave empty to generate a random token each start,
+        #                   # or set a fixed token so phones keep working across
+        #                   # desktop restarts without re-sharing the link.

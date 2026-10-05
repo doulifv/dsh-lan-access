@@ -1,0 +1,30 @@
+{
+  "name": "dsh-lan-access",
+  "version": "0.1.13",
+  "private": true,
+  "type": "module",
+  "description": "Expose the DeepSeek Harness desktop GUI on your LAN so a phone can reach it. Reverse-proxies the loopback web surface to 0.0.0.0 behind a configurable access token. Plain Node — no dependencies.",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "engines": {
+    "node": ">=18.2.0"
+  },
+  "dsh": {
+    "kind": "bundle",
+    "label": "LAN Access",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}
